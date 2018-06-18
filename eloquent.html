@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eloquent</title>
+</head>
+<body>
+<script>
+    let number = 0;
+    while (number <= 12) {
+        console.log('w ciele funkcji ' + number);
+        number = number + 2;
+    } console.log('poza ciałem ' + number);
+
+for (var digit = 0; digit <= 12; digit = digit + 2) {
+        console.log(digit);
+    }
+
+    let result = 2;
+    let counter = 0;
+    while (counter < 10) {
+        result = result * 2;
+        counter++;
+    } console.log(result);
+    let wynik = 1;
+
+    for (let i = 0; i < 10; i ++) {
+wynik = wynik * 2;
+ } console.log(wynik);
+
+ /*   let yourName;
+    do {
+        yourName = prompt('Who are you?');
+    } while (!yourName);
+    console.log(yourName)*/
+
+ var resulti = 1;
+for (var i = 0; i < 10; i ++ ) {
+    resulti = resulti * 2;
+} console.log(resulti);
+
+for (let current = 20; ; current ++) {
+    if (current % 7 === 0) {
+        console.log(current);
+        break
+    }
+}
+
+let resultat = '';
+let hash = '#';
+for (let i = 0; i < 7; i++ ) {
+    console.log(resultat);
+    resultat = resultat + hash;
+}
+console.log(resultat.length)
+
+var resu = 0;
+for (var i = 0; i < 100; i++) {
+    resu++;
+    if (resu % 3 && resu % 5 === 0) {
+        console.log('FizzBuzz');
+    } else if (resu % 3 === 0) {
+        console.log('Fizz');
+    } else if (resu % 5 === 0) {
+        console.log('Buzz');
+    } else {
+        console.log(resu);
+    }
+}
+
+
+    var size = 8;
+
+    var board = "";
+    var empty = ' ';
+
+    for (var y = 0; y < size; y++) {
+        for (var x = 0; x < size; x++) {
+            if ((y + x) % 2 !== 0) {
+                board += empty;
+            } else {
+                board += hash;
+            }
+        } board += '\n';
+    } console.log(board);
+
+
+    const hummus = function(factor) {
+        const ingredient = function(amount, unit, name) {
+            let ingredientAmount = amount * factor;
+            if (ingredientAmount > 1) {
+                unit += "s";
+            }
+            console.log(`${ingredientAmount} ${unit} ${name}`);
+        };
+        ingredient(1, "can", "chickpeas");
+        ingredient(0.25, "cup", "tahini");
+        ingredient(0.25, "cup", "lemon juice");
+        ingredient(1, "clove", "garlic");
+        ingredient(2, "tablespoon", "olive oil");
+        ingredient(0.5, "teaspoon", "cumin");
+    }; hummus(5)
+
+    function greet(who) {
+        console.log("Hello " + who);
+    }
+    greet("Harry");
+    console.log("Bye");
+
+    function powers(base, exponent = 2) {
+        let result = 1;
+        for (let count = 0; count < exponent; count++) {
+            result *= base;
+        }
+        return result;
+    } powers(4)
+
+    const power = (base, exponent) => {
+        let result = 1;
+        for (let count = 0; count < exponent; count++) {
+            result *= base;
+        }
+        return result;
+    }; power(2, 2)
+
+    console.log(power(4));
+
+    function multiplier(factor) {
+        return number => number * factor;
+    }
+    let twice = multiplier(2);
+    console.log(twice(5));
+
+    function findSolution(target) {
+        function find(current, history) {
+            if (current == target) {
+                return history;
+            } else if (current > target) {
+                return null;
+            } else {
+                return find(current + 5, `(${history} + 5)`) ||
+                    find(current * 3, `(${history} * 3)`);
+            }
+        }
+        return find(1, "1");
+    }
+    console.log(findSolution(3));
+
+    /* Should return ᐃ type:
+  0 : if ᐃ cannot be made with given sides
+  1 : acute ᐃ
+  2 : right ᐃ
+  3 : obtuse ᐃ
+*/
+    function triangleType(a, b, c){
+        var max = Math.max(a,b,c);
+
+        if (a+b+c <= 2*max) return 0;
+        if (2*max*max == a*a+b*b+c*c) return 2;
+        if (2*max*max >  a*a+b*b+c*c) return 3;
+        return 1;
+    } triangleType(1,2,3)
+
+
+</script>
+</body>
+</html>

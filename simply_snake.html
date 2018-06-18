@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake in pure HTML/JavaScript/CSS</title>
+    <style>
+        html {
+            text-align: center;
+            font-family: Helvetica, Arial, Helvetica, sans-serif;
+        }
+
+        #board {
+            width: calc(26 * 24px);
+            margin: auto;
+        }
+
+        .board {
+            background-color: black;
+            border: 1px solid grey;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .snake {
+            background-color: green;
+        }
+    </style>
+</head>
+<body id="initGame">
+<h1>Simple Snake</h1>
+<div id="board"></div>
+
+<script>
+    const board = document.getElementById('board');
+    var snakeX;
+    var snakeY;
+    var snakeDirection;
+    var snakeLength;
+    const boardWidth = 26, boardHeight = 16;
+    var row;
+    var cell;
+    initGame()
+    startGame()
+
+    switch (snakeDirection) {
+        case 'Up':    snakeY--; break;
+        case 'Down':  snakeY++; break;
+        case 'Left':  snakeX--; break;
+        case 'Right': snakeX++; break;
+    }
+
+    // Update the board at the new snake position
+    board[snakeY][snakeX].snake = 1;
+
+    function gameLoop() {
+         for (var y = 0; y < boardHeight; ++y) {
+            for (var x = 0; x < boardWidth; ++x) {
+                var cell = board[y][x];
+                if (cell.snake) {
+                    cell.className.add = 'snake';
+                }
+                else {
+                    cell.className.add = '';
+                }
+            }
+        }
+
+        // This function calls itself, with a timeout of 1000 milliseconds
+        setTimeout(gameLoop, 1000);
+    }
+
+    function startGame() {
+        // Default position for the snake in the middle of the board.
+        snakeX = Math.floor(boardWidth / 2);
+        snakeY = Math.floor(boardHeight / 2);
+        snakeLength = 5;
+        snakeDirection = 'Up';
+
+        // Set the center of the board to contain a snake
+        board[snakeY][snakeX].snake = 1;
+    }
+
+
+
+    function initGame() {
+        var cell = {
+            snake: 0
+        };
+
+        for (var y = 0; y < boardHeight; ++y) {
+            row = document.createElement('div');
+            for (var x = 0; x < boardWidth; ++x) {
+                cell = document.createElement('div');
+                cell.classList.add('board');
+                row.appendChild(cell);
+            }
+            board.appendChild(row);
+        }
+    }
+</script>
+</body>
+</html>
