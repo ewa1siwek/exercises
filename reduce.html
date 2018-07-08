@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reduce</title>
+</head>
+<body>
+<script>
+    var orders = [
+        {amount: 250},
+        {amount: 400},
+        {amount: 100},
+        {amount: 325}
+    ];
+var total = 0;
+for (var i = 0; i < orders.length; i++) {
+    total += orders[i].amount;
+}
+console.log(total);
+
+var redTotal = orders.reduce(function (sum, order) {
+    return sum  + order.amount;
+}, 0)
+    console.log(redTotal);
+
+var arrReduTotal = orders.reduce((sum, order) => sum + order.amount, 0)
+    console.log(arrReduTotal);
+</script>
+</body>
+</html>
