@@ -35,76 +35,32 @@
 <script>
     var board = document.getElementById('board');
     var startPlayButton = document.getElementById('button__game--play');
-    var boardHeight = 20;
-    var boardWidth = 20;
+    var boardHeight = 4;
+    var boardWidth = 3;
     var rowNode;
     var columnNode;
 
-    var snakeX;
-    var snakeY;
-    var snakeDirection;
-    var snakeLength;
-
-    var cell = {
-        snake: 0
-    };
-
-    startPlayButton.addEventListener('click', function () {
-        startSnake()
-    });
-    document.addEventListener('keydown', keyDown, false);
-    document.addEventListener('keyup', keyUp, false);
-
-    function keyDown(e) {
-        if (e.keyCode === 39) {
-            key.right = true;
-        } else if (e.keyCode === 37) {
-            key.left = true;
-        }
-        if (e.keyCode === 38) {
-            key.up = true;
-        } else if (e.keyCode === 40) {
-            key.down = true;
-        }
-    }
-
-    function keyUp(e) {
-        if (e.keyCode === 39) {
-            key.right = false;
-        } else if (e.keyCode === 37) {
-            key.left = false;
-        }
-        if (e.keyCode === 38) {
-            key.up = false;
-        } else if (e.keyCode === 40) {
-            key.down = false;
-        }
-    }
+    startPlayButton.addEventListener('click', startSnake());
 
     function startSnake() {
         var snakeIndex = Math.floor(Math.random() * boardHeight * boardWidth);
-        var appleIndex = Math.floor(Math.random() * boardHeight * boardWidth);
-
         createBoard();
         displaySnake(snakeIndex);
-        displayApple(appleIndex);
-    }
-
-    function displayApple(index) {
-        var allCells = board.querySelectorAll('.board__cell');
-        index === 'board__cell--snake' ? allCells[index].classList.remove('board__cell--apple') :
-            allCells[index].classList.add('board__cell--apple');
     }
 
     function displaySnake(index) {
         var allCells = board.querySelectorAll('.board__cell');
-        allCells[index].classList.add('board__cell--snake');
+        if (allCells[index].classList.add('board__cell--snake')) {
+            function displayApple(index) {
+                var appleIndex = Math.floor(Math.random() * (boardHeight * boardWidth));
+                allCells[index].classList.add('board__cell--apple');
+            } displayApple()
+        };
+
     }
 
     function createBoard() {
-        board.innerHTML = '';
-
-        for (var y = 0; y < boardHeight; y++) {
+         for (var y = 0; y < boardHeight; y++) {
             rowNode = document.createElement('div');
             for (var x = 0; x < boardWidth; x++) {
                 columnNode = document.createElement('div');
@@ -115,6 +71,55 @@
         }
     }
 
+    /* document.addEventListener('keydown', keyDown, false);
+     document.addEventListener('keyup', keyUp, false);
+
+     function keyDown(e) {
+         if (e.keyCode === 39) {
+             key.right = true;
+         } else if (e.keyCode === 37) {
+             key.left = true;
+         }
+         if (e.keyCode === 38) {
+             key.up = true;
+         } else if (e.keyCode === 40) {
+             key.down = true;
+         }
+     }
+
+     function keyUp(e) {
+         if (e.keyCode === 39) {
+             key.right = false;
+         } else if (e.keyCode === 37) {
+             key.left = false;
+         }
+         if (e.keyCode === 38) {
+             key.up = false;
+         } else if (e.keyCode === 40) {
+             key.down = false;
+         }
+     }*/
+
+    // Create a function that takes a string and returns the number (count) of vowels contained within it.
+/*    function countVowels(str) {
+        return str.match(/[aeiou]/gi).length
+    }
+
+    //Create a function that takes an integer and returns the factorial of that integer. That is, the integer multiplied by all positive lower integers.
+    function factorial(int) {
+        var x = 1;
+        for (var i = 1; i <= int; i++ ) {
+            x = i * x
+        }
+        return x
+    }
+    function factorial(int) {
+        if(int < 1) {
+            return 1;
+        } else {
+            return int * factorial(int-1);
+        }
+    }*/
 </script>
 
 </body>

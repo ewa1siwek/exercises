@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="message true">Available: <span id="stock"></span></div>
+<script>
+
+    //wyszukiwanie słowa w stringu
+    function detectBrowser(userAgent){
+        if (/chrome/i.test(userAgent) == true) {
+            return "Google Chrome";
+        } else if (/firefox/i.test(userAgent) == true) {
+            return "Mozilla Firefox";
+        } else {
+            return "Internet Explorer";
+        }
+        return "edabit";
+    }
+
+    function detectBrowser(u){
+        if (u.indexOf('Firefox') != -1)
+            return 'Mozilla Firefox';
+        if (u.indexOf('Chrome') != -1)
+            return 'Google Chrome';
+        return 'Internet Explorer';
+    }
+    //suma z tablicy
+    var sum = arr.reduce((a, b) => a + b, 0);
+    //suma z tab;icy
+
+    /*Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
+        Examples
+        [[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]] ➞ [7, 90, 2]
+        [[-34, -54, -74], [-32, -2, -65], [-54, 7, -43]] ➞ [-34, -2, 7]*/
+    function findLargestNums(arr) {
+        return arr.map(x => Math.max(...x))
+    }
+    /*Write a function that takes four string arguments. You will be comparing the first string to the three next strings. Verify if the first string starts with the second string, includes the third string, and ends with the fourth string. If the first string passes all checks, return the string "My head, body, and tail.", otherwise, return "Incomplete.".
+        Examples
+    "Onomatopeia", "on", "mato", "ia" ➞ "Incomplete."
+    "Centipede", "Cent", "tip", "pede" ➞ "My head, body, and tail."*/
+    function verifySubstrs(mainStr, head, body, tail) {
+        return mainStr.startsWith(head) && mainStr.includes(body) && mainStr.endsWith(tail) ? "My head, body, and tail." : "Incomplete.";
+    }
+
+</script>
+</body>
+</html>
